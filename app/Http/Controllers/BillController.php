@@ -25,7 +25,7 @@ class BillController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -39,6 +39,14 @@ class BillController extends Controller
         $user_name = auth()->user()->name;
 
         return !str_contains($user_name, 'Guest');
+        $client = Bill::create([
+            'invoice'=>$request->invoice,
+            'installment'=>$request->installment,
+            'value'=>$request->value,
+            'client_id'=>$request->client_id,
+            'due_date'=>$request->due_date,
+            'payment_date'=>$request->payment_date
+        ]);
     }
 
     /**
