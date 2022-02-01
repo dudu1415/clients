@@ -24,7 +24,12 @@ class StoreClientRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'name'=>'required',
         ];
+    }
+    public function messages(){
+        return [
+            'name.required'=> 'Um nome é obrigatório',
+        ];   
     }
 }
