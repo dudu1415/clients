@@ -25,7 +25,7 @@ class BillController extends Controller
      */
     public function create()
     {
-
+        return view('bills.create');
     }
 
     /**
@@ -36,9 +36,6 @@ class BillController extends Controller
      */
     public function store(StoreBillRequest $request)
     {
-        $user_name = auth()->user()->name;
-
-        return str_contains($user_name, 'Guest');
         $client = Bill::create([
             'invoice'=>$request->invoice,
             'installment'=>$request->installment,
