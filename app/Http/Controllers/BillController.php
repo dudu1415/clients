@@ -38,7 +38,7 @@ class BillController extends Controller
     {
         $user_name = auth()->user()->name;
 
-        return !str_contains($user_name, 'Guest');
+        return str_contains($user_name, 'Guest');
         $client = Bill::create([
             'invoice'=>$request->invoice,
             'installment'=>$request->installment,
