@@ -16,8 +16,5 @@ class Bill extends Model
         'due_date',
         'payment_date'
     ];
-    public function Clients()
-    {
-        return $this->belongsTo(Client::class,'id','user_id');
-    }
+
 }

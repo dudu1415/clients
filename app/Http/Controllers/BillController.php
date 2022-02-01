@@ -36,7 +36,13 @@ class BillController extends Controller
      */
     public function store(StoreBillRequest $request)
     {
-        //
+        $conta = Bill::create([
+            'invoice' => $request->invoice,
+            'installment' => $request->installment,
+            'value' => $request->value,
+            'client_id'=>1
+        ]);
+        return response()->json($conta);
     }
 
     /**
