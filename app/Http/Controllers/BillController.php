@@ -36,11 +36,15 @@ class BillController extends Controller
      */
     public function store(StoreBillRequest $request)
     {
+         $user = auth()->user();
+        if(str_contains($user,'Guest')){
+            return false;
+        }
         $conta = Bill::create([
             'invoice' => $request->invoice,
             'installment' => $request->installment,
             'value' => $request->value,
-            'client_id'=>1
+            'client_id'=>$user,
         ]);
         return response()->json($conta);
     }
